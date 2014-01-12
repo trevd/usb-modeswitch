@@ -1,0 +1,28 @@
+usb_modeswitch 2.0.1
+
+NOTES
+=====
+
+Depends on libusb-1.0 - An Android version can be found @
+https://github.com/trevd/libusb1-android.git
+
+Creates a statically linked executable
+
+
+Quick and Dirty Compiling for Android 
+=====================================
+
+From source root ( assumes lunch and a full build exists )
+
+cd external
+git clone https://github.com/trevd/libusb1-android.git libusb-1.0
+cd libusb-1.0
+mm
+cd ../external
+git clone https://github.com/trevd/usb-modeswitch.git
+cd usb-modeswitch
+mm
+cd $ANDROID_PRODUCT_OUT
+adb remount /system 
+adb push system/bin/usb_modeswitch /system/bin
+
